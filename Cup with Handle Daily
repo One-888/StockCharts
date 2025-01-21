@@ -1,0 +1,48 @@
+//
+// Day ago  4 > 3 > 2 > 1 (yesterday) > 0 (Today) 
+//
+// Stocks Selection Sections
+[type is stock]
+
+and [ [group is SP500]
+	or [group is SP400]
+	or [group is SP600]
+	]
+
+//and [ [ChartList is 51] // * 0 Key Index ETF 
+//	or [ChartList is 41] // * 01 Total Market
+//	or [ChartList is 45] // * 03 ETFs # 2 QQQ *]
+//	or [ChartList is 31] // DK - Morning - 3300 US Factor ETFs
+//	or [ChartList is 4] // = * 90 ETFs with High Risk *
+//	]
+
+// Close and Volume
+// Close Up 2%
+and [1  day ago daily Close * 1.01 < 0 day ago daily Close]
+and [2  day ago daily Close < 1  day ago daily Close]
+// Volume above avg
+and [0 day ago sma(62,daily volume) * 1 <= 0  day ago daily volume]
+and [1 day ago sma(62,daily volume) * 1 <= 1  day ago daily volume]
+and [2 day ago sma(62,daily volume) * 1 <= 2  day ago daily volume]
+// Weekly Vol increases
+and [1  week ago weekly volume * 1.01 < 0  week ago weekly volume]
+
+// dry day price down and no vol
+// Day 3 and 4 ago
+// Close below Day 2
+and [3  day ago daily Close <= 2  day ago daily Close]
+and [4  day ago daily Close <= 2  day ago daily Close]
+// Volume below Average
+and [3  day ago daily volume <= 3 day ago sma(62, daily volume)]
+and [4  day ago daily volume <= 4 day ago sma(62, daily volume)]
+
+// Other minimum requirements
+// Better 0.05% SPX
+and [PctRelative(62,$spx) >= 0.005]
+and [daily close > 30]
+//
+and [0 day ago sma(62,daily volume) > 999999]
+and [daily volume > 999999]
+
+and [daily SCTR > 80]
+rank by eps
