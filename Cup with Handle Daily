@@ -1,4 +1,4 @@
-//
+ //
 // Day ago  4 > 3 > 2 > 1 (yesterday) > 0 (Today) 
 //
 // Stocks Selection Sections
@@ -18,14 +18,14 @@ and [ [group is SP500]
 
 // Close and Volume
 // Close Up 2%
-and [1  day ago daily Close * 1.01 < 0 day ago daily Close]
+
 and [2  day ago daily Close < 1  day ago daily Close]
 // Volume above avg
-and [0 day ago sma(62,daily volume) * 1 <= 0  day ago daily volume]
+
 and [1 day ago sma(62,daily volume) * 1 <= 1  day ago daily volume]
 and [2 day ago sma(62,daily volume) * 1 <= 2  day ago daily volume]
 // Weekly Vol increases
-and [1  week ago weekly volume * 1.01 < 0  week ago weekly volume]
+and [2  week ago weekly volume * 1.01 < 1  week ago weekly volume]
 
 // dry day price down and no vol
 // Day 3 and 4 ago
@@ -39,10 +39,17 @@ and [4  day ago daily volume <= 4 day ago sma(62, daily volume)]
 // Other minimum requirements
 // Better 0.05% SPX
 and [PctRelative(62,$spx) >= 0.005]
-and [daily close > 30]
+and [PctRelative(62,$industry) >= 0.005]
+and [1 day ago daily close > 30]
+and [1 day ago daily close < 1000]
+and [1 day ago  daily SCTR > 80]
+and [outstanding shares > 5]
+and [eps > 0]
 //
-and [0 day ago sma(62,daily volume) > 999999]
-and [daily volume > 999999]
-
-and [daily SCTR > 80]
+// Exclude Today
+and [1  day ago daily Close * 1 < 0 day ago daily Close]
+//and [0 day ago sma(62,daily volume) > 999999]
+//and [daily volume > 999999]
+//and [0 day ago sma(62,daily volume) * 1 <= 0  day ago daily volume]
+//and [daily SCTR > 80]
 rank by eps
