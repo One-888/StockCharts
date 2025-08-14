@@ -8,10 +8,10 @@ An initial scan of the S&P 500 is conducted to identify volume spikes that are a
 Utilizing weekly or monthly data mitigates the noise associated with rapid daily volume fluctuations, thereby providing a clearer indication of significant volume spikes. The default setting is on a monthly basis, which smooths out short-term volatility and highlights more substantial trends.
 
 ### Scan Code
-```markdown
+```
 [group is SP500]
-and [1 month ago Monthly Close > 1 month ago Monthly Open]  // Bullish monthly candle
 and [2 months ago Monthly Volume * 1.55 < 1 month ago Monthly Volume]  // Volume up 55%
+```
 
 ## Step 2: Position Opening
 
