@@ -9,8 +9,13 @@ Utilizing weekly or monthly data mitigates the noise associated with rapid daily
 
 ### Scan Code
 ```
+// Monthly
 [group is SP500]
 and [2 months ago Monthly Volume * 1.55 < 1 month ago Monthly Volume]  // Volume up 55%
+
+// Weekly
+[group is SP500]
+and [2 weeks ago Weekly Volume * 1.55 < 1 week ago Weekly Volume]  // Volume up 5% last week
 ```
 
 ## Step 2: Position Opening
