@@ -26,7 +26,7 @@ In the Thinkorswim web application, a conditional order is executed at or above 
 
 ## Exit Strategy
 
-The strategy adheres to a risk management rule of never risking more than 7% of the investment. A trailing stop order is set by default at 3%. For high-risk stocks, such as PLTR, the trailing stop is set at 3%, while for stocks like the Magnificent Seven, it is set at 4%.
+The strategy adheres to a risk management rule of never risking more than 7% of the investment. A trailing stop order is set by default at 3%. For high-risk stocks, such as PLTR, the trailing stop is set at 3%, while for stocks like the Magnificent Seven, it is set at 4%. For ETFs, the default trailing stop is set at 7%.
 
 ## Additional Notes
 
