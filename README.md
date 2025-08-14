@@ -3,7 +3,7 @@
 This trading strategy leverages stockcharts.com for comprehensive market analysis. The strategy is designed to address two pivotal questions: the optimal timing for purchasing stocks and the appropriate purchase price.
 
 ## Step 1: Initial Scan
-An initial scan of the S&P 500 is conducted to identify volume spikes that are at least 1.25 times the volume of the previous period (weekly or monthly). This scan generates a list of potential stocks for acquisition.
+An initial scan of the S&P 500 is conducted to identify volume spikes that are at least 1.55 times the volume of the previous period (weekly or monthly). This scan generates a list of potential stocks for acquisition.
 
 Utilizing weekly or monthly data mitigates the noise associated with rapid daily volume fluctuations, thereby providing a clearer indication of significant volume spikes. The default setting is on a monthly basis, which smooths out short-term volatility and highlights more substantial trends.
 
